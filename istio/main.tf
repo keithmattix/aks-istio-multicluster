@@ -66,10 +66,7 @@ module "cluster2-istio" {
   istio_ca_cert_private_key = module.cluster2-intermediate-cert.private_key_pem
   istio_ca_cert             = module.cluster2-intermediate-cert.intermediate_ca_cert_pem
   istio_root_cert           = module.root-cert.root_ca_cert_pem
-  istio_cert_chain          = <<PEM
-${module.cluster2-intermediate-cert.intermediate_ca_cert_pem}
-${module.root-cert.root_ca_cert_pem}
-PEM
+  istio_cert_chain          = "${module.cluster2-intermediate-cert.intermediate_ca_cert_pem}${module.root-cert.root_ca_cert_pem}" # Newlines are added automatically
   is_primary                = true
 
   cluster_name = data.azurerm_kubernetes_cluster.cluster2.name
