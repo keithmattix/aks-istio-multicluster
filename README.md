@@ -18,7 +18,7 @@ This repository contains the code and instructions to deploy a multi-cluster Ist
 ```json
 {
   "mesh_id": "MESH_ID",
-  "cluster1": {
+  "cluster1": { // Populate these after running `terraform apply` in the `aks` directory
     "name": "CLUSTER1_NAME",
     "resource_group_name": "CLUSTER1_RESOURCE_GROUP_NAME"
   },
